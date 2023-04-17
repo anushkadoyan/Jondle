@@ -11,19 +11,6 @@ class PlaylistGenerator:
             lines = f.readlines()
             return [line.strip() for line in lines if len(line.strip()) > 0 and not line.startswith("#")]
 
-    # regex = r"v=([a-zA-Z-_\d]*)"
-    def extract_dict(self, urls: list) -> dict[dict[str]]:
-        infos = {}
-        ydl_opts = {}
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            for url in urls:
-                info = ydl.extract_info(url, download=False, )
-
-                # ℹ️ ydl.sanitize_info makes the info json-serializable
-                # print(json.dumps(ydl.sanitize_info(info)))
-                infos[info["id"]] = {"title": info["title"]}
-        return infos
-
     def extract(self, urls: list) -> list[dict[str]]:
         info = []
         ydl_opts = {}
@@ -69,7 +56,7 @@ class PlaylistGenerator:
         return field.replace('"', r'\"')
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("urls_file")
     parser.add_argument("output_file")
@@ -82,3 +69,7 @@ if __name__ == "__main__":
     js_playlist = generator.build_playlist_string(video_info)
     with open(args.output_file, 'w') as f:
         f.write(js_playlist)
+
+
+if __name__ == "__main__":
+    main()
