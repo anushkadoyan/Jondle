@@ -1,0 +1,84 @@
+#!/usr/bin/python3
+# Glitch has Python 3.7.10 installed
+import argparse
+from random import shuffle
+import yt_dlp
+
+
+class PlaylistGenerator:
+    def get_urls_from_file(self, path: str) -> list[str]:
+        with open(path) as f:
+            lines = f.readlines()
+            return [line.strip() for line in lines if len(line.strip()) > 0 and not line.startswith("#")]
+
+    # regex = r"v=([a-zA-Z-_\d]*)"
+    def extract_dict(self, urls: list) -> dict[dict[str]]:
+        infos = {}
+        ydl_opts = {}
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            for url in urls:
+                info = ydl.extract_info(url, download=False, )
+
+                # ℹ️ ydl.sanitize_info makes the info json-serializable
+                # print(json.dumps(ydl.sanitize_info(info)))
+                infos[info["id"]] = {"title": info["title"]}
+        return infos
+
+    def extract(self, urls: list) -> list[dict[str]]:
+        info = []
+        ydl_opts = {}
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            for url in urls:
+                url_info = ydl.sanitize_info(ydl.extract_info(url, download=False))
+                if url_info["_type"] == "video":
+                    info.append(url_info)
+                if url_info["_type"] == "playlist":
+                    for entry in url_info["entries"]:
+                        info.append(entry)
+        return info
+
+    def build_playlist_string(self, video_info: list[dict[str]]) -> str:
+        output = ""
+        for info in video_info:
+            artist = self.escape_quotes(self.get_artist(info))
+            title = self.escape_quotes(self.get_title(info))
+            output += f'{{ artist: "{artist}", name: "{title}", youtubeId: "{info["id"]}" }},\n'
+        return output
+
+    def get_artist(self, info):
+        if info.get("artist"):
+            return info["artist"]
+        elif " - " in info["title"]:
+            return info["title"].split(" - ")[0]
+        else:
+            return info["uploader"]
+
+    def get_title(self, info):
+        title = info["title"]
+        suffixes = ["(Official Music Video)", "(Official Video)", "(Official Lyric Video)", "(Official Audio)", "(Audio)"]
+        for suffix in suffixes:
+            title = title.removesuffix(suffix).strip()
+        if info.get("track"):
+            return info["track"]
+        elif " - " in title:
+            return title.split(" - ")[1]
+        else:
+            return title
+
+    def escape_quotes(self, field: str) -> str:
+        return field.replace('"', r'\"')
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("urls_file")
+    parser.add_argument("output_file")
+    args = parser.parse_args()
+
+    generator = PlaylistGenerator()
+    urls = generator.get_urls_from_file(args.urls_file)
+    video_info = generator.extract(urls)
+    shuffle(video_info)
+    js_playlist = generator.build_playlist_string(video_info)
+    with open(args.output_file, 'w') as f:
+        f.write(js_playlist)
