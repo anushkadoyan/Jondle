@@ -12,17 +12,17 @@ class PlaylistGenerator:
             return [line.strip() for line in lines if len(line.strip()) > 0 and not line.startswith("#")]
 
     def extract(self, urls: list) -> list[dict[str]]:
-        info = []
+        info = {}
         ydl_opts = {}
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             for url in urls:
                 url_info = ydl.sanitize_info(ydl.extract_info(url, download=False))
                 if url_info["_type"] == "video":
-                    info.append(url_info)
+                    info[url_info["id"]] = url_info
                 if url_info["_type"] == "playlist":
                     for entry in url_info["entries"]:
-                        info.append(entry)
-        return info
+                        info[entry["id"]] = entry
+        return list(info.values())
 
     def build_playlist_string(self, video_info: list[dict[str]]) -> str:
         output = ""
