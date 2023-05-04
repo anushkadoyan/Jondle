@@ -14,14 +14,19 @@ class PlaylistGenerator:
     def extract(self, urls: list) -> list[dict[str]]:
         info = {}
         ydl_opts = {}
+        errors = []
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             for url in urls:
-                url_info = ydl.sanitize_info(ydl.extract_info(url, download=False))
-                if url_info["_type"] == "video":
-                    info[url_info["id"]] = url_info
-                if url_info["_type"] == "playlist":
-                    for entry in url_info["entries"]:
-                        info[entry["id"]] = entry
+                try:
+                    url_info = ydl.sanitize_info(ydl.extract_info(url, download=False))
+                    if url_info["_type"] == "video":
+                        info[url_info["id"]] = url_info
+                    if url_info["_type"] == "playlist":
+                        for entry in url_info["entries"]:
+                            info[entry["id"]] = entry
+                except yt_dlp.utils.DownloadError:
+                    errors.append(url)
+        print(f"{errors=}")
         return list(info.values())
 
     def build_playlist_string(self, video_info: list[dict[str]]) -> str:
