@@ -40,35 +40,33 @@ export function Result({
       <>
         <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
         <Styled.SongTitle>
-          Todays song is {todaysSolution.artist} -{" "}
-          {todaysSolution.name}
+          Today's song is {todaysSolution.artist} - {todaysSolution.name}
         </Styled.SongTitle>
         <Styled.Tries>
-          You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}
+          You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
         </Styled.Tries>
         <YouTube id={todaysSolution.youtubeId} />
         <Button onClick={copyResult} variant="green">
           Copy results
         </Button>
         <Styled.TimeToNext>
-          Remember to come back in {hoursToNextDay}{" "} hours!
+          Remember to come back in {hoursToNextDay} hours!
         </Styled.TimeToNext>
       </>
     );
   } else {
     return (
       <>
-        <Styled.ResultTitle>Unfortunately, thats wrong</Styled.ResultTitle>
+        <Styled.ResultTitle>Unfortunately, thats wrong.</Styled.ResultTitle>
         <Styled.SongTitle>
-          Todays song is {todaysSolution.artist} -{" "}
-          {todaysSolution.name}
+          Today's song is {todaysSolution.artist} - {todaysSolution.name}
         </Styled.SongTitle>
         <YouTube id={todaysSolution.youtubeId} />
         <Button onClick={copyResult} variant="red">
           Copy results
         </Button>
         <Styled.TimeToNext>
-          Try again in {hoursToNextDay}{" "} hours
+          Try again in {hoursToNextDay} hours.
         </Styled.TimeToNext>
       </>
     );
