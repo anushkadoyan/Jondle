@@ -30,12 +30,12 @@ export function Result({
       60
   );
 
-  const textForTry = ["Wow!", "Super!", "Congrats!", "Nice!"];
   const copyResult = React.useCallback(() => {
     navigator.clipboard.writeText(scoreToEmoji(guesses));
   }, [guesses]);
 
   if (didGuess) {
+    const textForTry = ["Perfect!", "Wow!", "Super!", "Congrats!", "Nice!"];
     return (
       <>
         <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
