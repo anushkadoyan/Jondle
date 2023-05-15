@@ -29,7 +29,7 @@ export const Separator = styled.div`
   position: absolute;
   top: 0;
 
-  width: 0.8px;
+  width: 1px;
   height: 100%;
 
   background-color: ${({ theme }) => theme.border100};
