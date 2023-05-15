@@ -11,8 +11,7 @@ export function scoreToEmoji(guesses: GuessType[]): string {
     skip: "⬜",
     empty: "⬛️",
   };
-  // const todaysDate = new Date();
-  const prefix = `HeardleTemplate - #${index} 🎧`;
+  const prefix = `PersonalHeardle - #${index}`;
 
   let scoreEmoji = "";
 
