@@ -31,12 +31,11 @@ export function Result({
   );
 
   const textForTry = ["Wow!", "Super!", "Congrats!", "Nice!"];
+  const copyResult = React.useCallback(() => {
+    navigator.clipboard.writeText(scoreToEmoji(guesses));
+  }, [guesses]);
 
   if (didGuess) {
-    const copyResult = React.useCallback(() => {
-      navigator.clipboard.writeText(scoreToEmoji(guesses));
-    }, [guesses]);
-
     return (
       <>
         <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
@@ -65,6 +64,9 @@ export function Result({
           {todaysSolution.name}
         </Styled.SongTitle>
         <YouTube id={todaysSolution.youtubeId} />
+        <Button onClick={copyResult} variant="red">
+          Copy results
+        </Button>
         <Styled.TimeToNext>
           Try again in {hoursToNextDay}{" "} hours
         </Styled.TimeToNext>
