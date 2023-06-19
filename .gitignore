@@ -12,6 +12,7 @@ urls*.txt
 
 # JavaScript
 # dependencies
+/.yarn
 /node_modules
 /.pnp
 .pnp.js
