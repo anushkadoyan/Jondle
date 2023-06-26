@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ResultTitle = styled.h1`
+  text-align: center;
   @media (max-width: 768px) {
-    text-align: center;
     width: 100%;
   }
 `;
