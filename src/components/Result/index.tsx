@@ -8,6 +8,55 @@ import { Button } from "../Button";
 import { MiniYouTubePlayer } from "../MiniYouTubePlayer";
 
 import * as Styled from "./index.styled";
+import { theme } from "../../constants";
+
+interface SolutionProps {
+  didGuess: boolean;
+  currentTry: number;
+  todaysSolution: Song;
+}
+
+function Solution({
+  didGuess,
+  todaysSolution,
+  currentTry,
+}: SolutionProps) {
+  return (
+    <>
+      <Styled.SongTitle>
+        Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
+      </Styled.SongTitle>
+      {didGuess &&
+        <Styled.Tries>
+          You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
+        </Styled.Tries>
+      }
+      <MiniYouTubePlayer id={todaysSolution.youtubeId} />
+    </>
+  );
+}
+
+interface ShareButtonProps {
+  guesses: GuessType[];
+  variant?: keyof typeof theme;
+}
+
+function ShareButton({
+  guesses,
+  variant
+}:ShareButtonProps) {
+  const copyResult = React.useCallback(() => {
+    navigator.clipboard.writeText(scoreToEmoji(guesses));
+  }, [guesses]);
+
+  return (
+    <>
+      <Button onClick={copyResult} variant={variant}>
+        Copy results
+      </Button>
+    </>
+  )
+}
 
 interface Props {
   didGuess: boolean;
@@ -30,25 +79,13 @@ export function Result({
       60
   );
 
-  const copyResult = React.useCallback(() => {
-    navigator.clipboard.writeText(scoreToEmoji(guesses));
-  }, [guesses]);
-
   if (didGuess) {
     const textForTry = ["Perfect!", "Wow!", "Super!", "Congrats!", "Nice!"];
     return (
       <>
         <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
-        <Styled.SongTitle>
-          Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
-        </Styled.SongTitle>
-        <Styled.Tries>
-          You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
-        </Styled.Tries>
-        <MiniYouTubePlayer id={todaysSolution.youtubeId} />
-        <Button onClick={copyResult} variant="green">
-          Copy results
-        </Button>
+        <Solution todaysSolution={todaysSolution} didGuess={didGuess} currentTry={currentTry} />
+        <ShareButton guesses={guesses} variant="green" />
         <Styled.TimeToNext>
           Remember to come back in {hoursToNextDay} hours!
         </Styled.TimeToNext>
@@ -58,13 +95,8 @@ export function Result({
     return (
       <>
         <Styled.ResultTitle>Unfortunately, thats wrong.</Styled.ResultTitle>
-        <Styled.SongTitle>
-          Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
-        </Styled.SongTitle>
-        <MiniYouTubePlayer id={todaysSolution.youtubeId} />
-        <Button onClick={copyResult} variant="red">
-          Copy results
-        </Button>
+        <Solution todaysSolution={todaysSolution} didGuess={didGuess} currentTry={currentTry} />
+        <ShareButton guesses={guesses} variant="red" />
         <Styled.TimeToNext>
           Try again in {hoursToNextDay} hours.
         </Styled.TimeToNext>
