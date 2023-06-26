@@ -3302,34 +3302,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.9":
-  version: 17.0.20
-  resolution: "@types/react-dom@npm:17.0.20"
+"@types/react-dom@npm:17.0.14":
+  version: 17.0.14
+  resolution: "@types/react-dom@npm:17.0.14"
   dependencies:
-    "@types/react": ^17
-  checksum: 525439fb14a033fc5dbe74711ecc50ec82273a528df9656594066a6219401e975101dafffd15d9a1a57a9442d52ea0c92eaacae09554dde27cd792e773f67467
+    "@types/react": "*"
+  checksum: b54cd0ef573236b3d87fe7493e6d1c36d8b4ca37a3b46364272a5c91ac178e3296b68ea1aeb299ce68f12ad663c5720ee890d0539b14881c6754bdcbdb0befa0
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.2.13
-  resolution: "@types/react@npm:18.2.13"
+"@types/react@npm:17.0.14":
+  version: 17.0.14
+  resolution: "@types/react@npm:17.0.14"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: f7c15f19c164a29262993ea2aae2085fa38cddd9b8359fd8fefabfced91010b515a3abe2042b2b7f2f86e6b38a25b191415aa9313a9027175e3a000883c858cc
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17, @types/react@npm:^17.0.20":
-  version: 17.0.62
-  resolution: "@types/react@npm:17.0.62"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 428a5aff44824ef504e9a9259b5894fe44a5db1c344b536990f07e132900ff5b34cbef0be77a84f30f37be1f88fc8b56dce328f568de8d65de3bfe414c05b2e1
+  checksum: ca2eca8f33ddbcba46932efeb8affdd274ea5800ea38bf8bc8de205808d09de21ea1f3d6ab156573aca393b912f0d908826cc6ad92470a3f2b6c34e70d5f75db
   languageName: node
   linkType: hard
 
