@@ -1,8 +1,8 @@
 import { GuessType } from "../types/guess";
+import { startDate } from "../constants";
 
 export function scoreToEmoji(guesses: GuessType[]): string {
   const msInDay = 86400000;
-  const startDate = new Date('5/5/2023');
   const todaysDate = new Date();
   const index = Math.floor((todaysDate.getTime() - startDate.getTime() )/msInDay) + 1 
   const emojis = {
