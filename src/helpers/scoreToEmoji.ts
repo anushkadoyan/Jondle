@@ -27,5 +27,5 @@ export function scoreToEmoji(guesses: GuessType[]): string {
     }
   });
 
-  return `${prefix} ${scoreEmoji}`;
+  return `${prefix}\n${scoreEmoji}`;
 }
