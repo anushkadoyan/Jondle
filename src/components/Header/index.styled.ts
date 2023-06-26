@@ -42,7 +42,7 @@ export const Logo = styled.h1`
   color: ${({ theme }) => theme.text};
   font-family: "Roboto Serif", serif;
   text-transform: uppercase;
-  width: max-content;
+  text-align: center;
 
   -webkit-touch-callout: none;
   user-select: none;
