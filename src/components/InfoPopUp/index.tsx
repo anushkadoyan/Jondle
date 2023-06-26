@@ -1,5 +1,5 @@
 import React from "react";
-import { IoMusicalNoteOutline, IoHelpCircleOutline } from "react-icons/io5";
+// import { IoMusicalNoteOutline, IoHelpCircleOutline } from "react-icons/io5";
 import { Button } from "..";
 
 import * as Styled from "./index.styled";

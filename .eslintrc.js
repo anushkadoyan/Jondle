@@ -42,4 +42,11 @@ module.exports = {
 
     "@typescript-eslint/explicit-module-boundary-types": [0],
   },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
 };

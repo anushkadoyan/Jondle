@@ -40,7 +40,7 @@ export function Result({
       <>
         <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
         <Styled.SongTitle>
-          Today's song is {todaysSolution.artist} - {todaysSolution.name}
+          Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
         </Styled.SongTitle>
         <Styled.Tries>
           You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
@@ -59,7 +59,7 @@ export function Result({
       <>
         <Styled.ResultTitle>Unfortunately, thats wrong.</Styled.ResultTitle>
         <Styled.SongTitle>
-          Today's song is {todaysSolution.artist} - {todaysSolution.name}
+          Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
         </Styled.SongTitle>
         <YouTube id={todaysSolution.youtubeId} />
         <Button onClick={copyResult} variant="red">

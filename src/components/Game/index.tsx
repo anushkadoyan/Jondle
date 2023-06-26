@@ -10,7 +10,7 @@ import * as Styled from "./index.styled";
 
 interface Props {
   guesses: GuessType[];
-  todaysSolution: any;
+  todaysSolution: Song;
   currentTry: number;
   didGuess: boolean;
   setSelectedSong: React.Dispatch<React.SetStateAction<Song | undefined>>;
