@@ -1,5 +1,5 @@
 import { GuessType } from "../types/guess";
-import { startDate } from "../constants";
+import { appName, startDate } from "../constants";
 
 export function scoreToEmoji(guesses: GuessType[]): string {
   const msInDay = 86400000;
@@ -11,7 +11,7 @@ export function scoreToEmoji(guesses: GuessType[]): string {
     skip: "⬜",
     empty: "⬛️",
   };
-  const prefix = `PersonalHeardle - #${index}`;
+  const prefix = `${appName} - #${index}`;
 
   let scoreEmoji = "";
 

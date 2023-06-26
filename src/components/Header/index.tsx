@@ -1,5 +1,6 @@
 import React from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { appName } from "../../constants";
 
 import * as Styled from "./index.styled";
 
@@ -18,7 +19,7 @@ export function Header({ openInfoPopUp }: Props) {
           height={30}
         />
 
-        <Styled.Logo>EpicWolverine&apos;s Heardle</Styled.Logo>
+        <Styled.Logo>{appName}</Styled.Logo>
         <a href="#"></a>
       </Styled.Content>
     </Styled.Container>
