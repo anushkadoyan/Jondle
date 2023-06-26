@@ -1,7 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { IoPlay } from "react-icons/io5";
-import { event } from "react-ga";
 
 import { playTimes } from "../../constants";
 
@@ -54,10 +53,6 @@ export function Player({ id, currentTry }: Props) {
   const startPlayback = React.useCallback(() => {
     playerRef.current?.internalPlayer.playVideo();
     setPlay(true);
-    event({
-      category: "Player",
-      action: "Played song",
-    });
   }, []);
 
   const setReady = React.useCallback(() => {

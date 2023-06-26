@@ -1,5 +1,4 @@
 import React from "react";
-import { event } from "react-ga";
 import { IoSearch } from "react-icons/io5";
 import { searchSong } from "../../helpers";
 import { Song } from "../../types/song";
@@ -38,12 +37,6 @@ export function Search({ currentTry, setSelectedSong }: Props) {
               setSelectedSong(song);
               setValue(`${song.artist} - ${song.name}`);
               setResults([]);
-
-              event({
-                category: "Player",
-                action: "Chose song",
-                label: `${song.artist} - ${song.name}`,
-              });
             }}
           >
             <Styled.ResultText>
