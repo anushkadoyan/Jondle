@@ -5,7 +5,7 @@ import { GuessType } from "../../types/guess";
 import { scoreToEmoji } from "../../helpers";
 
 import { Button } from "../Button";
-import { YouTube } from "../YouTube";
+import { MiniYouTubePlayer } from "../MiniYouTubePlayer";
 
 import * as Styled from "./index.styled";
 
@@ -45,7 +45,7 @@ export function Result({
         <Styled.Tries>
           You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
         </Styled.Tries>
-        <YouTube id={todaysSolution.youtubeId} />
+        <MiniYouTubePlayer id={todaysSolution.youtubeId} />
         <Button onClick={copyResult} variant="green">
           Copy results
         </Button>
@@ -61,7 +61,7 @@ export function Result({
         <Styled.SongTitle>
           Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
         </Styled.SongTitle>
-        <YouTube id={todaysSolution.youtubeId} />
+        <MiniYouTubePlayer id={todaysSolution.youtubeId} />
         <Button onClick={copyResult} variant="red">
           Copy results
         </Button>

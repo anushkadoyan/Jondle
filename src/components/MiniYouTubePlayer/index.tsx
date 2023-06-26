@@ -5,7 +5,7 @@ interface Props {
   id: string;
 }
 
-export function YouTube({ id }: Props) {
+export function MiniYouTubePlayer({ id }: Props) {
   return (
     <div style={{ margin: "5% 0" }}>
       <YouTubePlayer
