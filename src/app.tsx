@@ -20,7 +20,7 @@ function App() {
   } as GuessType;
 
   const [guesses, setGuesses] = React.useState<GuessType[]>(
-    Array.from({ length: 5 }).fill(initialGuess) as GuessType[]
+    Array.from({ length: 6 }).fill(initialGuess) as GuessType[]
   );
   const [currentTry, setCurrentTry] = React.useState<number>(0);
   const [selectedSong, setSelectedSong] = React.useState<Song>();
