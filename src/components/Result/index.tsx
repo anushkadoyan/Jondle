@@ -45,11 +45,17 @@ function ShareButton({
   guesses,
   variant
 }:ShareButtonProps) {
-  const [buttonText, setButtonText] = useState('Copy Results');
-
+  const result = scoreToEmoji(guesses);
+  const [buttonText, setButtonText] = useState('Share Results');
   const handleClick = React.useCallback(() => {
-    navigator.clipboard.writeText(scoreToEmoji(guesses));
-    setButtonText('Copied!');
+    if (navigator.share !== undefined) {
+      navigator.share({text: result})
+    } else if (navigator.clipboard !== undefined) {
+      navigator.clipboard.writeText(result)
+      setButtonText('Copied!');
+    } else {
+      setButtonText('Failed to open share menu or copy');
+    }
   }, [guesses]);
 
   return (
