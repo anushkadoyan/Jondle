@@ -22,7 +22,7 @@ export function InfoPopUp({ onClose }: Props) {
         </Styled.Section>
         <Styled.Section>
           {/* <IoHelpCircleOutline size={50} /> */}
-          <p>Skipped or incorrect attempts unlock more of the intro</p>
+          <p>Skipped or incorrect attempts unlock more of the intro.</p>
         </Styled.Section>
         <Styled.Section>
           <p>Answer in as few tries as possible and share your score!</p>
