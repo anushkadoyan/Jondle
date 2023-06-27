@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 
 import { Song } from "../../types/song";
 import { GuessType } from "../../types/guess";
@@ -45,14 +45,17 @@ function ShareButton({
   guesses,
   variant
 }:ShareButtonProps) {
-  const copyResult = React.useCallback(() => {
+  const [buttonText, setButtonText] = useState('Copy Results');
+
+  const handleClick = React.useCallback(() => {
     navigator.clipboard.writeText(scoreToEmoji(guesses));
+    setButtonText('Copied!');
   }, [guesses]);
 
   return (
     <>
-      <Button onClick={copyResult} variant={variant}>
-        Copy results
+      <Button onClick={handleClick} variant={variant}>
+        {buttonText}
       </Button>
     </>
   )
