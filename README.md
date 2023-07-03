@@ -1,10 +1,7 @@
 # PersonalHeardle
 
-https://epicwolverine-heardle.glitch.me/
-
-When they get CNAMEs working again, use
-http://heardle.epicwolverine.com/
-
+https://heardle.epicwolverine.com
+(replaces https://epicwolverine-heardle.glitch.me)
 
 # Słuchaj.fun and Heardle Template
 Forked from [Shizerq/sluchajfun](https://github.com/Shizerq/sluchajfun) and [sarvarghese/youtube-heardle-template](https://github.com/sarvarghese/youtube-heardle-template).
