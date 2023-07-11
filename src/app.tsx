@@ -25,6 +25,26 @@ function App() {
   const [didGuess, setDidGuess] = React.useState<boolean>(false);
 
   const firstRun = localStorage.getItem("firstRun") === null;
+
+  function importStats () {
+    const queryParam = new URLSearchParams(window.location.search).get('statsImport') || "";
+    if (queryParam){
+      const importedStats = JSON.parse(queryParam)
+      if (Array.isArray(importedStats)) {
+        importedStats.forEach(day => {
+          if (Array.isArray(day.guesses)) {
+            if(day.guesses.length == 5){
+              day.guesses.push(initialGuess)
+            }
+          }
+        });
+      }
+      localStorage.setItem("stats", JSON.stringify(importedStats));
+      location.replace(location.pathname);
+    }
+  }
+  importStats()
+
   let stats = JSON.parse(localStorage.getItem("stats") || "{}");
 
   React.useEffect(() => {
