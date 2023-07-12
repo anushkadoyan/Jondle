@@ -29,7 +29,9 @@ function App() {
   function reloadWithoutQueryParameters() {
     location.replace(location.pathname);
   }
-  const statsImportQueryParameter = new URLSearchParams(window.location.search).get('statsImport') || "";
+  const urlHash = window.location.hash;
+  const urlQueryParametersStart = urlHash.indexOf("?");
+  const statsImportQueryParameter = new URLSearchParams(urlHash.substring(urlQueryParametersStart)).get('statsImport') || "";
   function importStats () {
     if (statsImportQueryParameter){
       const importedStats = JSON.parse(statsImportQueryParameter)
