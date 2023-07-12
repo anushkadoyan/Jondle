@@ -26,10 +26,13 @@ function App() {
 
   const firstRun = localStorage.getItem("firstRun") === null;
 
+  function reloadWithoutQueryParameters() {
+    location.replace(location.pathname);
+  }
+  const statsImportQueryParameter = new URLSearchParams(window.location.search).get('statsImport') || "";
   function importStats () {
-    const queryParam = new URLSearchParams(window.location.search).get('statsImport') || "";
-    if (queryParam){
-      const importedStats = JSON.parse(queryParam)
+    if (statsImportQueryParameter){
+      const importedStats = JSON.parse(statsImportQueryParameter)
       if (Array.isArray(importedStats)) {
         importedStats.forEach(day => {
           if (Array.isArray(day.guesses)) {
@@ -40,10 +43,16 @@ function App() {
         });
       }
       localStorage.setItem("stats", JSON.stringify(importedStats));
-      location.replace(location.pathname);
+      reloadWithoutQueryParameters();
     }
   }
-  importStats()
+  if (statsImportQueryParameter){
+    if (confirm("Do you want to import your previous stats? This will overwrite any stats on this site.")){
+      importStats()
+    } else {
+      reloadWithoutQueryParameters();
+    }
+  }
 
   let stats = JSON.parse(localStorage.getItem("stats") || "{}");
 
