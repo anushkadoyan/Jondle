@@ -276,7 +276,6 @@ export const songs = [
   { artist: "Will Smith, Dru Hill, Kool Mo Dee", name: "Wild Wild West", youtubeId: "vRLED8AvVvQ" },
   { artist: "311", name: "Stealing Happy Hours", youtubeId: "P22-e4Ol49s" },
   { artist: "Pitbull, Ke$ha", name: "Timber", youtubeId: "GcYF1xnmZTI" },
-  { artist: "Kevin Rudolf, Lil Wayne", name: "Let It Rock", youtubeId: "1lAdfEsf4p8" },
   { artist: "Joe \"Bean\" Esposito", name: "You're The Best (The Karate Kid)", youtubeId: "p44G0U4sLCE" },
   { artist: "Barenaked Ladies", name: "If I Had $1,000,000", youtubeId: "aynCgnbbgbM" },
   { artist: "Chris Tilton", name: "Building the Foundation (SimCity 2013)", youtubeId: "d_QvSN07S5c" },
