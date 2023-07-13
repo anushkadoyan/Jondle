@@ -669,7 +669,7 @@ export const songs = [
   { artist: "Kiss", name: "Detroit Rock City (Edit)", youtubeId: "jUIAf-2Hre4" },
   { artist: "Toto", name: "Africa", youtubeId: "QAo_Ycocl1E" },
   { artist: "Otis Redding", name: "[Sittin' On] the Dock of the Bay", youtubeId: "Zu5chXCp1Ag" },
-  { artist: "Aerosmith", name: "Dude Looks Like A Lady (Lyrics)", youtubeId: "acQ6jLe3R8E" },
+  { artist: "Aerosmith", name: "Dude Looks Like A Lady", youtubeId: "acQ6jLe3R8E" },
   { artist: "Tom Petty", name: "Free Fallin'", youtubeId: "ikum949djQM" },
   { artist: "Beastie Boys", name: "Brass Monkey", youtubeId: "acY2VSskD80" },
   { artist: "Fleetwood Mac", name: "You Make Loving Fun", youtubeId: "RqjXn2NflqU" },
