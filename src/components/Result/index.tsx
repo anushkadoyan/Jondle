@@ -48,7 +48,10 @@ function ShareButton({
   const result = scoreToEmoji(guesses);
   const [buttonText, setButtonText] = useState('Share Results');
   const handleClick = React.useCallback(() => {
-    if (navigator.share !== undefined) {
+    // The Windows share sheet is dumb and doesn't have a copy function.
+    const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+    const onWindows = windowsPlatforms.indexOf(window.navigator.platform) !== -1;
+    if (navigator.share !== undefined && !onWindows) {
       navigator.share({text: result})
     } else if (navigator.clipboard !== undefined) {
       navigator.clipboard.writeText(result)
