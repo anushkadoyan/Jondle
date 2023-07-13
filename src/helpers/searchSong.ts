@@ -15,6 +15,5 @@ export function searchSong(searchTerm: string): Song[] {
     })
     .sort((a, b) =>
       a.artist.toLowerCase().localeCompare(b.artist.toLocaleLowerCase())
-    )
-    .slice(0, 5);
+    );
 }

@@ -52,11 +52,12 @@ export const ResultsContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
   width: 100%;
 
-  overflow-y: scroll;
+  max-height: 500%;
+  overflow-y: auto;
 `;
 
 export const Result = styled.div`
