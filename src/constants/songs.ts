@@ -620,7 +620,6 @@ export const songs = [
   { artist: "C418", name: "Minecraft (Minecraft)", youtubeId: "XuZDeT8zI5c" },
   { artist: "Post Malone, Swae Lee", name: "Sunflower (Spider-Man: Into the Spider-Verse)", youtubeId: "r7Rn4ryE_w8" },
   { artist: "Bruce Springsteen", name: "Born in the U.S.A.", youtubeId: "tRx212PUa4g" },
-  { artist: "Smash Mouth", name: "Walkin' on the Sun", youtubeId: "p8LZhGUu7C8" },
   { artist: "Thin Lizzy", name: "The Boys Are Back In Town", youtubeId: "nN120kCiVyQ" },
   { artist: "Paul Simon", name: "You Can Call Me Al", youtubeId: "OMbfT3Wppjo" },
   { artist: "Electric Light Orchestra", name: "Don't Bring Me Down", youtubeId: "kW0HZy8J0v0" },
