@@ -780,7 +780,6 @@ export const songs = [
   { artist: "Bon Jovi", name: "Livin' On A Prayer", youtubeId: "YBdyc1WDlBQ" },
   { artist: "Mötley Crüe", name: "Wild Side", youtubeId: "MVkTYD_3XPA" },
   { artist: "Dave Rodgers", name: "Beat of the Rising Sun", youtubeId: "5WyN2y2FPnQ" },
-  { artist: "Smash Mouth", name: "All Star", youtubeId: "-_RBJvfoszk" },
   { artist: "Fitz and The Tantrums", name: "HandClap", youtubeId: "5AtkWnBjGBU" },
   { artist: "3 Doors Down", name: "Be Like That", youtubeId: "HHpMtWtgUvc" },
   { artist: "Eric Clapton", name: "Cocaine", youtubeId: "8QYdIswhbY4" },
