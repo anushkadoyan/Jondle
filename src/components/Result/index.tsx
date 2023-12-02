@@ -21,11 +21,18 @@ function Solution({
   todaysSolution,
   currentTry,
 }: SolutionProps) {
+  const todaysDate = new Date();
+  const christmasSongDay = todaysDate.getFullYear() == 2023 && todaysDate.getMonth() == 11 && todaysDate.getDate() >= 1 && todaysDate.getDate() <= 25
+  const gifs = ["923701894117982238", "655441669893914664", "919955833264160810"]
+  const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
   return (
     <>
       <Styled.SongTitle>
         Today&apos;s song is {todaysSolution.artist} - {todaysSolution.name}
       </Styled.SongTitle>
+      {christmasSongDay &&
+        <img src={"https://cdn.discordapp.com/emojis/" + randomGif + ".gif?size=44&amp;quality=lossless"}></img>
+      }
       {didGuess &&
         <Styled.Tries>
           You guessed it in {currentTry} {currentTry === 1 ? 'try' : 'tries'}.
