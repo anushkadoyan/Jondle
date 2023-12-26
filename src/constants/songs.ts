@@ -512,7 +512,6 @@ export const songs = [
   { artist: "Rick James", name: "Super Freak", youtubeId: "wnKc4zi0MLA" },
   { artist: "Third Eye Blind", name: "Never Let You Go", youtubeId: "2nroaoWEXIA" },
   { artist: "Herman's Hermits", name: "I'm Into Something Good", youtubeId: "MDUCOwp1p60" },
-  { artist: "Van Halen", name: "Runnin' with the Devil", youtubeId: "enL_lzVyNdM" },
   { artist: "Sammy Hagar", name: "I Can't Drive 55", youtubeId: "2Qf98egLWOk" },
   { artist: "Talking Heads", name: "Road to Nowhere", youtubeId: "FhRLGarxEuY" },
   { artist: "Pat Benatar", name: "Love Is A Battlefield", youtubeId: "vo6PgC0cP4c" },
