@@ -288,7 +288,7 @@ export const songs = [
   { artist: "Prince & The Revolution", name: "I Would Die 4 U", youtubeId: "hkNl3pq1twE" },
   { artist: "Linkin Park", name: "What I've Done", youtubeId: "Jrprk5dNboI" },
   { artist: "Daft Punk, Pharrell Williams, Nile Rodgers", name: "Get Lucky (feat. Pharrell Williams and Nile Rodgers)", youtubeId: "4D7u5KF7SP8" },
-  { artist: "Quiet Riot", name: "Cum on Feel the Noize", youtubeId: "XQ5mygB97nM" },
+  //{ artist: "Quiet Riot", name: "Cum on Feel the Noize", youtubeId: "XQ5mygB97nM" },
   { artist: "Evanescence", name: "Bring Me To Life", youtubeId: "-eGM0IJc70Y" },
   { artist: "Bruce Springsteen", name: "Glory Days", youtubeId: "GLBnj159q3s" },
   { artist: "twenty one pilots", name: "Holding on to You", youtubeId: "_t8HWppY4T0" },
