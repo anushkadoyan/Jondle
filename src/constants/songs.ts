@@ -295,7 +295,7 @@ export const songs = [
   { artist: "Linkin Park", name: "Numb", youtubeId: "u-IcadiJCrE" },
   { artist: "ABBA", name: "Waterloo", youtubeId: "9y-8ZiAJiQo" },
   { artist: "M.O.O.N.", name: "'Crystals' [Hotline Miami Soundtrack]", youtubeId: "AVblOqZBlJw" },
-  { artist: "Sugar High", name: "Approaching Nirvana", youtubeId: "ngsGBSCDwcI" },
+  { artist: "Approaching Nirvana", name: "Sugar High", youtubeId: "ngsGBSCDwcI" },
   { artist: "Toto", name: "Rosanna", youtubeId: "SGtVZgCYVgk" },
   { artist: "Pet Shop Boys", name: "West End Girls", youtubeId: "-G8KmNF-xc4" },
   { artist: "Daryl Hall & John Oates", name: "I Can't Go for That (No Can Do)", youtubeId: "Ry04tCx4Bqw" },
