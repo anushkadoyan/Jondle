@@ -56,6 +56,7 @@ function App() {
   }
 
   let stats = JSON.parse(localStorage.getItem("stats") || "{}");
+  let statsVersion = JSON.parse(localStorage.getItem("version") || "1");
 
   React.useEffect(() => {
     if (Array.isArray(stats)) {
@@ -84,6 +85,36 @@ function App() {
         solution: todaysSolution,
       });
     }
+    const currentVersion = 2;
+    if (firstRun) {
+      statsVersion = currentVersion
+    }
+    else if (statsVersion < currentVersion) {
+      statsVersion = currentVersion;
+      if (Array.isArray(stats)) {
+        for (let index = 0; index < stats.length; index++) {
+          const newGuesses: GuessType[] = [];
+          for (let guessIndex = 0; guessIndex < stats[index].guesses.length; guessIndex++) {
+            const guess = stats[index].guesses[guessIndex];
+            if (guess.skipped !== undefined) {
+                let state = undefined;
+                if (guess.skipped) {
+                  state = GuessState.Skipped;
+                } else if (guess.isCorrect){
+                  state = GuessState.Correct;
+                } else if (guess.isCorrect === false){
+                  state = GuessState.Incorrect;
+                }
+                newGuesses.push({
+                  song: guess.song,
+                  state: state,
+                } as GuessType);
+              }
+          }
+          stats[index].guesses = newGuesses;
+        }
+      }
+    }
   }, []);
 
   React.useEffect(() => {
@@ -98,6 +129,10 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem("stats", JSON.stringify(stats));
   }, [stats]);
+
+  React.useEffect(() => {
+    localStorage.setItem("version", JSON.stringify(statsVersion));
+  }, [statsVersion]);
 
   const [isInfoPopUpOpen, setIsInfoPopUpOpen] =
     React.useState<boolean>(firstRun);
