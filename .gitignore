@@ -9,6 +9,7 @@ ignore
 notes.txt
 playlist*.js
 urls*.txt
+urls*.js
 
 # JavaScript
 # dependencies
