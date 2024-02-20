@@ -6,8 +6,8 @@ export type GuessType = {
 };
 
 export const enum GuessState {
-  Correct = 0,
-  PartiallyCorrect = 1,
-  Incorrect = 2,
-  Skipped = 3,
+  Correct = "Correct",
+  PartiallyCorrect = "PartiallyCorrect",
+  Incorrect = "Incorrect",
+  Skipped = "Skipped",
 }
