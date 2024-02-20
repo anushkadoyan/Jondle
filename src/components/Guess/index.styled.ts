@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+import { GuessState } from "../../types/guess";
+
 export const Container = styled.div<{
   active: boolean;
-  isCorrect: boolean | undefined;
+  state: GuessState | undefined;
 }>`
   width: 100%;
   height: 45px;
@@ -12,10 +14,12 @@ export const Container = styled.div<{
   display: flex;
   align-items: center;
 
-  border-color: ${({ theme, active, isCorrect }) => {
+  border-color: ${({ theme, active, state }) => {
     if (active) {
       return theme.border;
-    } else if (isCorrect === false) {
+    } else if (state === GuessState.PartiallyCorrect) {
+      return theme.yellow;
+    } else if (state === GuessState.Incorrect) {
       return theme.red;
     } else {
       return theme.border100;

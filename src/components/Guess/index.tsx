@@ -1,23 +1,22 @@
 import React from "react";
 
-import { GuessType } from "../../types/guess";
+import { GuessType, GuessState } from "../../types/guess";
 
 import * as Styled from "./index.styled";
 
 interface Props {
   guess: GuessType;
-  isCorrect: boolean | undefined;
   active: boolean;
 }
 
-export function Guess({ guess, isCorrect, active }: Props) {
-  const { song, skipped } = guess;
+export function Guess({ guess, active }: Props) {
+  const { song, state } = guess;
   const [text, setText] = React.useState<string>("");
 
   React.useEffect(() => {
     if (song) {
       setText(`${song.artist} - ${song.name}`);
-    } else if (skipped) {
+    } else if (state === GuessState.Skipped) {
       setText("Skipped");
     } else {
       setText("");
@@ -25,7 +24,7 @@ export function Guess({ guess, isCorrect, active }: Props) {
   }, [guess]);
 
   return (
-    <Styled.Container active={active} isCorrect={isCorrect}>
+    <Styled.Container active={active} state={state}>
       <Styled.Text>{text}</Styled.Text>
     </Styled.Container>
   );

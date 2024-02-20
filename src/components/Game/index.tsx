@@ -43,7 +43,6 @@ export function Game({
         <Guess
           key={index}
           guess={guess}
-          isCorrect={guess.isCorrect}
           active={index === currentTry}
         />
       ))}

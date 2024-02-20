@@ -1,4 +1,4 @@
-import { GuessType } from "../types/guess";
+import { GuessType, GuessState } from "../types/guess";
 import { appName, startDate } from "../constants";
 
 export function scoreToEmoji(guesses: GuessType[]): string {
@@ -7,6 +7,7 @@ export function scoreToEmoji(guesses: GuessType[]): string {
   const index = Math.floor((todaysDate.getTime() - startDate.getTime() )/msInDay) + 1 
   const emojis = {
     incorrect: "🟥",
+    partiallyCorrect: "🟨",
     correct: "🟩",
     skip: "⬜",
     empty: "⬛️",
@@ -16,11 +17,13 @@ export function scoreToEmoji(guesses: GuessType[]): string {
   let scoreEmoji = "";
 
   guesses.forEach((guess: GuessType) => {
-    if (guess.isCorrect === true) {
+    if (guess.state === GuessState.Correct) {
       scoreEmoji += emojis.correct;
-    } else if (guess.skipped === true) {
+    } else if (guess.state === GuessState.Skipped) {
       scoreEmoji += emojis.skip;
-    } else if (guess.isCorrect === false) {
+    } else if (guess.state === GuessState.PartiallyCorrect) {
+      scoreEmoji += emojis.partiallyCorrect;
+    } else if (guess.state === GuessState.Incorrect) {
       scoreEmoji += emojis.incorrect;
     } else {
       scoreEmoji += emojis.empty;

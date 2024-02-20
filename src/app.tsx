@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 
 import { Song } from "./types/song";
-import { GuessType } from "./types/guess";
+import { GuessState, GuessType } from "./types/guess";
 
 import { todaysSolution } from "./helpers";
 
@@ -13,8 +13,7 @@ import * as Styled from "./app.styled";
 function App() {
   const initialGuess = {
     song: undefined,
-    skipped: false,
-    isCorrect: undefined,
+    state: undefined,
   } as GuessType;
 
   const [guesses, setGuesses] = React.useState<GuessType[]>(
@@ -121,8 +120,7 @@ function App() {
       const newGuesses = [...guesses];
       newGuesses[currentTry] = {
         song: undefined,
-        skipped: true,
-        isCorrect: undefined,
+        state: GuessState.Skipped,
       };
 
       return newGuesses;
@@ -132,7 +130,12 @@ function App() {
   }, [currentTry]);
 
   const guess = React.useCallback(() => {
-    const isCorrect = selectedSong === todaysSolution;
+    let state = GuessState.Incorrect;
+    if (selectedSong === todaysSolution) {
+      state = GuessState.Correct;
+    } else if (selectedSong?.artist === todaysSolution.artist) {
+      state = GuessState.PartiallyCorrect
+    }
 
     if (!selectedSong) {
       alert("Choose a song");
@@ -143,8 +146,7 @@ function App() {
       const newGuesses = [...guesses];
       newGuesses[currentTry] = {
         song: selectedSong,
-        skipped: false,
-        isCorrect: isCorrect,
+        state: state,
       };
 
       return newGuesses;
@@ -153,7 +155,7 @@ function App() {
     setCurrentTry((currentTry) => currentTry + 1);
     setSelectedSong(undefined);
 
-    if (isCorrect) {
+    if (state === GuessState.Correct) {
       setDidGuess(true);
     }
   }, [guesses, selectedSong]);
