@@ -560,7 +560,7 @@ export const songs = [
   { artist: "Kid Rock", name: "All Summer Long", youtubeId: "FiLwPQKxOCM" },
   { artist: "Will Smith", name: "Gettin' Jiggy Wit It", youtubeId: "5VPm2yckO3k" },
   { artist: "Chicago", name: "Saturday in the Park", youtubeId: "JPOF31V-Xwg" },
-  { artist: "Paul Lipson, Lennie Moore, Tom Salta, Brian Trifon, Brian Lee White", name: "Moon Over Mombasa Part 2 (Halo 2)", youtubeId: "rjpljY6coxo" },
+  { artist: "Paul Lipson, Lennie Moore, Tom Salta, Brian Trifon, Brian Lee White", name: "Moon Over Mombasa Part 2 (Halo 2 Anniversary)", youtubeId: "rjpljY6coxo" },
   { artist: "Stevie Nicks", name: "Stop Draggin' My Heart Around (with Tom Petty and The Heartbreakers)", youtubeId: "XeyjEWIDJ5Q" },
   { artist: "Martin O’Donnell, Michael Salvatori", name: "Devils... Monsters (Halo: Combat Evolved)", youtubeId: "56w4VLURmGI" },
   { artist: "The Weeknd", name: "Blinding Lights", youtubeId: "J7p4bzqLvCw" },
