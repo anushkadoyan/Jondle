@@ -1109,7 +1109,6 @@ export const songs = [
   { artist: "Creedence Clearwater Revival", name: "Green River", youtubeId: "w0VI1zByJ3s" },
   { artist: "Jaycut, Kolt Siewerts, Soulpride", name: "The Flute Tune (Soulpride Remix)", youtubeId: "asnnRxedHVc" },
   { artist: "Iyaz", name: "Replay", youtubeId: "4FqGpT3yhUI" },
-  { artist: "Scorpions", name: "No One Like You", youtubeId: "Yp5UHsnWolY" },
   { artist: "Bruce Springsteen", name: "Dancing In the Dark", youtubeId: "nCFTL4IO6t4" },
   { artist: "Styx", name: "Renegade", youtubeId: "E9eLz4DrwF8" },
   { artist: "American Hi-Fi", name: "Flavor Of The Weak", youtubeId: "B-mi4SdTomM" },
