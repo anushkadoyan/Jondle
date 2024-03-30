@@ -334,7 +334,7 @@ export const songs = [
   { artist: "Herman's Hermits", name: "I'm Into Something Good", youtubeId: "MDUCOwp1p60" },
   { artist: "Def Leppard", name: "Armageddon It", youtubeId: "GgUnqQbNzoE" },
   { artist: "Seal", name: "Kiss from a Rose", youtubeId: "49ubX7n1BaQ" },
-  { artist: "Haddaway", name: "What Is Love (7\" Mix)", youtubeId: "bizWqF8BmM0" },
+  { artist: "Haddaway", name: "What Is Love", youtubeId: "OFNrN_6Ta5I" },
   { artist: "REO Speedwagon", name: "Keep on Loving You", youtubeId: "XKc7z-enzmA" },
   { artist: "LMFAO", name: "Sexy And I Know It", youtubeId: "NqiTCzvTk6I" },
   { artist: "Styx", name: "Why Me", youtubeId: "g4bCHctqmHs" },
