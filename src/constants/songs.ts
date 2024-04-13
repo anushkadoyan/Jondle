@@ -348,7 +348,7 @@ export const songs = [
   { artist: "White Town", name: "Your Woman", youtubeId: "3NoIusrv9OA" },
   { artist: "Snow Patrol", name: "Chasing Cars", youtubeId: "sgj04v5sDm4" },
   { artist: "Aaron Smith, Krono, Luvli", name: "Dancin (Krono Remix)", youtubeId: "LjtvF_UuRIU" },
-  { artist: "Journey", name: "Don't Stop Believin'", youtubeId: "kMgaA6RkcVU" },
+  { artist: "Journey", name: "Don't Stop Believin'", youtubeId: "1k8craCGpgs" },
   { artist: "Duran Duran", name: "Hungry Like the Wolf", youtubeId: "qCeyLsDHsKk" },
   { artist: "John Mayer", name: "No Such Thing", youtubeId: "0LWAGLMBB2M" },
   { artist: "Greg Kihn Band", name: "The Breakup Song", youtubeId: "fmyidCAFMtg" },
