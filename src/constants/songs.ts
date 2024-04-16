@@ -351,7 +351,7 @@ export const songs = [
   { artist: "Journey", name: "Don't Stop Believin'", youtubeId: "1k8craCGpgs" },
   { artist: "Duran Duran", name: "Hungry Like the Wolf", youtubeId: "qCeyLsDHsKk" },
   { artist: "John Mayer", name: "No Such Thing", youtubeId: "0LWAGLMBB2M" },
-  { artist: "Greg Kihn Band", name: "The Breakup Song", youtubeId: "fmyidCAFMtg" },
+  { artist: "Greg Kihn Band", name: "The Breakup Song", youtubeId: "AffLdombeOk" },
   { artist: "Evanescence", name: "My Immortal", youtubeId: "RxrTVf2vkLs" },
   { artist: "Eric Clapton", name: "Cocaine", youtubeId: "8QYdIswhbY4" },
   { artist: "The Black Keys", name: "Gold on the Ceiling", youtubeId: "8tPsaSPraks" },
