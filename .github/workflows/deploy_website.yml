@@ -30,23 +30,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
       - name: Run install
-        uses: borales/actions-yarn@v4.2.0
+        uses: borales/actions-yarn@v5
         with:
           cmd: install # will run `yarn install` command
       - name: Build production bundle
-        uses: borales/actions-yarn@v4.2.0
+        uses: borales/actions-yarn@v5
         with:
           cmd: build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
