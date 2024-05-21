@@ -386,7 +386,7 @@ export const songs = [
   { artist: "The Killers", name: "When You Were Young", youtubeId: "s2gtQJiM5Zg" },
   { artist: "Cascada", name: "Everytime We Touch", youtubeId: "84sHTvn6xf8" },
   { artist: "Scorpions", name: "No One Like You", youtubeId: "qKhorc1aYro" },
-  { artist: "Joji", name: "Run", youtubeId: "7qo7ESpyDNY" },
+  { artist: "Joji", name: "Run", youtubeId: "3Mt-q96kvl0" },
   { artist: "Jimmy Buffett", name: "Margaritaville", youtubeId: "5BuqBkR4384" },
   { artist: "Pitbull, Ne-Yo, Afrojack, Nayer", name: "Give Me Everything", youtubeId: "E2lX1ZovtcA" },
   { artist: "James Brown", name: "Get Up Offa That Thing", youtubeId: "2ATmDmLAMWw" },
