@@ -445,7 +445,7 @@ export const songs = [
   { artist: "Third Eye Blind", name: "Jumper (1998 Edit)", youtubeId: "tjK8zK3TMJc" },
   { artist: "Pitbull, Christina Aguilera", name: "Feel This Moment", youtubeId: "r90Wwl2MPq0" },
   { artist: "Pitbull, Ke$ha", name: "Timber", youtubeId: "GcYF1xnmZTI" },
-  { artist: "Tom Petty And The Heartbreakers", name: "American Girl", youtubeId: "SIhb-kNvL6M" },
+  { artist: "Tom Petty And The Heartbreakers", name: "American Girl", youtubeId: "8v8-RSyuUeE" },
   { artist: "Commodores", name: "Easy", youtubeId: "aCsZ3_db_Fk" },
   { artist: "Chicago", name: "25 or 6 to 4", youtubeId: "JTzFh1dCoGg" },
   { artist: "Genesis", name: "Land of Confusion", youtubeId: "CKrsAje9lxg" },
