@@ -4,8 +4,12 @@ import { songs, startDate } from "../constants";
 // const now = Date.now();
 // const index = Math.floor((now - epochMs) / msInDay);
 
-const msInDay = 86400000;
-const todaysDate = new Date();
-const index = Math.floor((todaysDate.getTime() - startDate.getTime() )/msInDay)
+export const getTodaysSolution = () => {
+  const msInDay = 86400000;
+  const todaysDate = new Date();
 
-export const todaysSolution = songs[index % songs.length];
+  const index = Math.floor(
+    (todaysDate.getTime() - startDate.getTime()) / msInDay
+  );
+  return songs[(index % songs.length) + 1];
+};

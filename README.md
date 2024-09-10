@@ -1,9 +1,10 @@
-# PersonalHeardle
+# Jondle
 
+Forked from
 https://heardle.epicwolverine.com
-(replaces https://epicwolverine-heardle.glitch.me)
 
 # Słuchaj.fun and Heardle Template
+
 Forked from [Shizerq/sluchajfun](https://github.com/Shizerq/sluchajfun) and [sarvarghese/youtube-heardle-template](https://github.com/sarvarghese/youtube-heardle-template).
 
 Clone of famous (now defunct) [Heardle](https://heardle.app) - "that daily music game".
@@ -11,17 +12,20 @@ Clone of famous (now defunct) [Heardle](https://heardle.app) - "that daily music
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Tech stack
-* [React](https://reactjs.org)
-* [TypeScript](https://www.typescriptlang.org)
-* [styled-components](https://styled-components.com)
-* [YouTube iFrame API](https://developers.google.com/youtube/iframe_api_reference)
+
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [styled-components](https://styled-components.com)
+- [YouTube iFrame API](https://developers.google.com/youtube/iframe_api_reference)
 
 ## To do
-* Add Storybook
-* Add tests
-* Disable/bypass iFrame's Media Session API
+
+- Add Storybook
+- Add tests
+- Disable/bypass iFrame's Media Session API
 
 ## Contributing
+
 Please format the code with ESLint and Prettier.
 
 `npx eslint src/ --fix`
@@ -31,6 +35,7 @@ Please format the code with ESLint and Prettier.
 In the project directory, you can run:
 
 ### `yarn`
+
 Installs all the required dependencies.
 
 ### `yarn start`

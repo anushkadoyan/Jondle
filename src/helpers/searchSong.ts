@@ -2,8 +2,10 @@ import { songs } from "../constants";
 import { Song } from "../types/song";
 
 export function searchSong(searchTerm: string): Song[] {
-  function fuzzyMatch(input: string){
-    return input.toLowerCase().replace(/[^0-9a-z ]/gi, '');
+  if (!searchTerm?.length) return [];
+
+  function fuzzyMatch(input: string) {
+    return input.toLowerCase().replace(/[^0-9a-z ]/gi, "");
   }
   searchTerm = fuzzyMatch(searchTerm);
 
@@ -16,8 +18,9 @@ export function searchSong(searchTerm: string): Song[] {
         return song;
       }
     })
-    .sort((a, b) =>
-      a.artist.toLowerCase().localeCompare(b.artist.toLocaleLowerCase())
-       || a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase())
+    .sort(
+      (a, b) =>
+        a.artist.toLowerCase().localeCompare(b.artist.toLocaleLowerCase()) ||
+        a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase())
     );
 }

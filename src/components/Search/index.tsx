@@ -30,9 +30,9 @@ export function Search({ currentTry, setSelectedSong }: Props) {
   return (
     <Styled.Container>
       <Styled.ResultsContainer>
-        {results.map((song) => (
+        {results.map((song, i) => (
           <Styled.Result
-            key={song.youtubeId}
+            key={`${song.artist}+${song.name}+${i}+${song.youtubeId}`}
             onClick={() => {
               setSelectedSong(song);
               setValue(`${song.artist} - ${song.name}`);

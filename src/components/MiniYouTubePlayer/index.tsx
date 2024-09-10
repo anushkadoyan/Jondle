@@ -7,7 +7,7 @@ interface Props {
 
 export function MiniYouTubePlayer({ id }: Props) {
   return (
-    <div style={{ margin: "5% 0" }}>
+    <div style={{ margin: "1% 0" }}>
       <YouTubePlayer
         videoId={id}
         opts={{
@@ -16,6 +16,9 @@ export function MiniYouTubePlayer({ id }: Props) {
           playerVars: {
             autoplay: 0,
             playsinline: 1,
+            modestbranding: 1, // Minimizes YouTube branding
+            rel: 0, // Prevents showing related videos at the end
+            showinfo: 0, // Deprecated, but used to hide video info
           },
         }}
       />

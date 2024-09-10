@@ -1,1 +1,1 @@
-export const playTimes = [1000, 2000, 4000, 7000, 11000, 16000];
+export const playTimes = [3000, 5000, 7000, 9000, 15000, 50000];

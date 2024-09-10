@@ -9,11 +9,13 @@ export const ProgressBackground = styled.div`
   background-color: ${({ theme }) => theme.gray};
   border-radius: 2px;
 
-  margin-top: 5%;
+  margin-top: 2%;
 `;
 
+// width: ${({ value }) => value * 9.4}%;
 export const Progress = styled.div<{ value: number }>`
-  width: ${({ value }) => value * 6.25}%;
+  width: ${({ value }) => value}%;
+  max-width: 100%;
   height: 20px;
 
   align-self: flex-start;
@@ -45,4 +47,6 @@ export const TimeStamps = styled.div`
 
 export const TimeStamp = styled.p`
   color: ${({ theme }) => theme.text};
+  height: 5px;
+  margin: 2px 0px;
 `;

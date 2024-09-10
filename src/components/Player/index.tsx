@@ -59,23 +59,33 @@ export function Player({ id, currentTry }: Props) {
     setIsReady(true);
   }, []);
 
+  const progressWidth = (currentTime / 50) * 105;
+
   return (
     <>
       <YouTube opts={opts} videoId={id} onReady={setReady} ref={playerRef} />
       {isReady ? (
         <>
           <Styled.ProgressBackground>
-            {currentTime !== 0 && <Styled.Progress value={currentTime} />}
-            {playTimes.map((playTime) => (
+            {currentTime !== 0 && <Styled.Progress value={progressWidth} />}
+            {playTimes.map((playTime, i) => (
               <Styled.Separator
-                style={{ left: `${(playTime / 16000) * 100}%` }}
+                style={
+                  playTime !== -1
+                    ? {
+                        left: `${(playTime / 50000) * 100}%`,
+                        backgroundColor: currentTry === i ? "green" : "gray",
+                        width: currentTry === i ? "5px" : "1px",
+                      }
+                    : {}
+                }
                 key={playTime}
               />
             ))}
           </Styled.ProgressBackground>
           <Styled.TimeStamps>
             <Styled.TimeStamp>1s</Styled.TimeStamp>
-            <Styled.TimeStamp>16s</Styled.TimeStamp>
+            <Styled.TimeStamp>50s</Styled.TimeStamp>
           </Styled.TimeStamps>
           <IoPlay
             style={{ cursor: "pointer" }}
