@@ -9,6 +9,7 @@ import { getTodaysSolution } from "./helpers";
 import { Header, InfoPopUp, Game } from "./components";
 
 import * as Styled from "./app.styled";
+// import { dateInPST } from "./constants";
 
 function App() {
   const initialGuess = {
@@ -17,6 +18,34 @@ function App() {
   } as GuessType;
 
   const todaysSolution = getTodaysSolution();
+
+  // const [todaysSolution, setTodaysSolution] = React.useState<
+  //   Song | undefined
+  // >();
+  // React.useEffect(() => {
+  //   const fetchTime = async () => {
+  //     let rightNow;
+  //     let rightNowDate;
+  //     try {
+  //       rightNow = await fetch(
+  //         "http://worldtimeapi.org/api/timezone/America/Los_Angeles"
+  //       );
+  //       rightNow = await rightNow.json();
+  //       rightNowDate = new Date(rightNow.datetime);
+
+  //       console.log(rightNow);
+  //       console.log(rightNowDate);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //     if (!rightNowDate) {
+  //       rightNowDate = dateInPST(new Date());
+  //     }
+  //     setTodaysSolution(getTodaysSolution(rightNowDate).theSolution);
+  //   };
+
+  //   fetchTime();
+  // }, []);
   console.log({ todaysSolution });
 
   const [guesses, setGuesses] = React.useState<GuessType[]>(
@@ -213,15 +242,17 @@ function App() {
       <Header openInfoPopUp={openInfoPopUp} />
       {isInfoPopUpOpen && <InfoPopUp onClose={closeInfoPopUp} />}
       <Styled.Container>
-        <Game
-          guesses={guesses}
-          didGuess={didGuess}
-          todaysSolution={todaysSolution}
-          currentTry={currentTry}
-          setSelectedSong={setSelectedSong}
-          skip={skip}
-          guess={guess}
-        />
+        {todaysSolution && (
+          <Game
+            guesses={guesses}
+            didGuess={didGuess}
+            todaysSolution={todaysSolution}
+            currentTry={currentTry}
+            setSelectedSong={setSelectedSong}
+            skip={skip}
+            guess={guess}
+          />
+        )}
       </Styled.Container>
     </main>
   );

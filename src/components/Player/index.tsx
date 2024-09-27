@@ -51,6 +51,7 @@ export function Player({ id, currentTry }: Props) {
 
   // don't call play video each time currentTime changes
   const startPlayback = React.useCallback(() => {
+    console.log("startPlayback");
     playerRef.current?.internalPlayer.playVideo();
     setPlay(true);
   }, []);
@@ -60,6 +61,16 @@ export function Player({ id, currentTry }: Props) {
   }, []);
 
   const progressWidth = (currentTime / 50) * 105;
+  console.log("isReady", isReady);
+  // Simulate clicking the play button twice on mount
+  React.useEffect(() => {
+    if (isReady) {
+      startPlayback();
+      setTimeout(() => {
+        startPlayback();
+      }, 500); // Adjust the delay as needed
+    }
+  }, [isReady, startPlayback]);
 
   return (
     <>
@@ -83,9 +94,33 @@ export function Player({ id, currentTry }: Props) {
               />
             ))}
           </Styled.ProgressBackground>
-          <Styled.TimeStamps>
-            <Styled.TimeStamp>1s</Styled.TimeStamp>
-            <Styled.TimeStamp>50s</Styled.TimeStamp>
+          <Styled.TimeStamps
+            style={{
+              position: "relative",
+            }}
+          >
+            <Styled.TimeStamp
+              style={
+                currentPlayTime === 50000
+                  ? {
+                      display: "none",
+                    }
+                  : {
+                      position: "absolute",
+                      left: `${(currentPlayTime / 50000) * 100}%`,
+                    }
+              }
+            >
+              {currentPlayTime / 1000}s
+            </Styled.TimeStamp>
+            <Styled.TimeStamp
+              style={{
+                position: "absolute",
+                right: "0",
+              }}
+            >
+              50s
+            </Styled.TimeStamp>
           </Styled.TimeStamps>
           <IoPlay
             style={{ cursor: "pointer" }}

@@ -1,9 +1,20 @@
 import { GuessType, GuessState } from "../types/guess";
-import { appName, startDate } from "../constants";
+import { appName, dateInPST, startDate } from "../constants";
+import { getTodaysSolution } from "./todaysSolution";
 
 export function scoreToEmoji(guesses: GuessType[]): string {
   const msInDay = 86400000;
   const todaysDate = new Date();
+  // let index;
+  // index = getTodaysSolution().index;
+  // if (!index) {
+  //   index = Math.floor(
+  //     (todaysDate.getTime() -
+  //       dateInPST(new Date("September 5, 2024")).getTime()) /
+  //       msInDay
+  //   );
+  // }
+  // index += 1;
   const index =
     Math.floor((todaysDate.getTime() - startDate.getTime()) / msInDay) + 1;
   const emojis = {

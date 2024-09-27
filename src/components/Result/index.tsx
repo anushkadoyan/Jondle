@@ -10,24 +10,34 @@ import { MiniYouTubePlayer } from "../MiniYouTubePlayer";
 import * as Styled from "./index.styled";
 import { theme } from "../../constants";
 import { Footer } from "../Footer";
+import StarRating from "../Rating";
 
 interface SolutionProps {
   didGuess: boolean;
   currentTry: number;
   todaysSolution: Song;
+  share: React.ReactNode;
 }
 
-function Solution({ didGuess, todaysSolution, currentTry }: SolutionProps) {
+function Solution({
+  // didGuess,
+  todaysSolution,
+  // currentTry,
+  share,
+}: SolutionProps) {
   return (
     <>
       <Styled.SongTitle>
         {todaysSolution.artist} - {todaysSolution.name}
       </Styled.SongTitle>
-      {didGuess && (
+      {share}
+      {/* {didGuess && (
         <Styled.Tries>
           You guessed it in {currentTry} {currentTry === 1 ? "try" : "tries"}.
         </Styled.Tries>
-      )}
+      )} */}
+      <StarRating song={todaysSolution} />
+
       <MiniYouTubePlayer id={todaysSolution.youtubeId} />
       {todaysSolution.jonYoutubeId ? (
         <MiniYouTubePlayer id={todaysSolution.jonYoutubeId} />
@@ -57,6 +67,7 @@ function ShareButton({ guesses, variant }: ShareButtonProps) {
     } else {
       setButtonText("Failed to open share menu or copy");
     }
+    
   }, [guesses]);
 
   return (
@@ -91,57 +102,46 @@ export function Result({
   guesses,
   currentTry,
 }: Props) {
-  const hoursToNextDay = Math.floor(
+  const minutesToNextDay = Math.floor(
     (new Date(new Date().setHours(24, 0, 0, 0)).getTime() -
       new Date().getTime()) /
       1000 /
-      60 /
       60
   );
+
+  const hoursToNextDay = Math.floor(minutesToNextDay / 60);
 
   // random message if you lose
   const loseMessage =
     loseMessages[Math.floor(Math.random() * loseMessages.length)];
 
-  if (didGuess) {
-    const textForTry = [
-      "Perfect!",
-      "Wow!",
-      "Super!",
-      "Congrats!",
-      "Nice!",
-      "Yay!",
-    ];
-    return (
-      <>
-        <Styled.ResultTitle>{textForTry[currentTry - 1]}</Styled.ResultTitle>
-        <Solution
-          todaysSolution={todaysSolution}
-          didGuess={didGuess}
-          currentTry={currentTry}
-        />
-        <ShareButton guesses={guesses} variant="green" />
-        <Styled.TimeToNext>
-          Remember to come back in {hoursToNextDay} hours!
-        </Styled.TimeToNext>
-        <Footer />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Styled.ResultTitle>{loseMessage}</Styled.ResultTitle>
-        <Solution
-          todaysSolution={todaysSolution}
-          didGuess={didGuess}
-          currentTry={currentTry}
-        />
-        <ShareButton guesses={guesses} variant="red" />
-        <Styled.TimeToNext>
-          Try again in {hoursToNextDay} hours.
-        </Styled.TimeToNext>
-        <Footer />
-      </>
-    );
-  }
+  const textForTry = [
+    "Perfect!",
+    "Wow!",
+    "Super!",
+    "Congrats!",
+    "Nice!",
+    "Yay!",
+  ];
+  return (
+    <>
+      <Styled.ResultTitle>
+        {didGuess ? textForTry[currentTry - 1] : loseMessage}
+      </Styled.ResultTitle>
+      <Solution
+        todaysSolution={todaysSolution}
+        didGuess={didGuess}
+        currentTry={currentTry}
+        share={<ShareButton guesses={guesses} variant="green" />}
+      />
+      <Styled.TimeToNext>
+        {`New Jondle in ${
+          hoursToNextDay === 0
+            ? minutesToNextDay + " minutes"
+            : hoursToNextDay + " hours"
+        }!`}
+      </Styled.TimeToNext>
+      <Footer />
+    </>
+  );
 }

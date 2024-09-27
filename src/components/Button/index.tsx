@@ -8,11 +8,17 @@ interface Props {
   variant?: keyof typeof theme;
   children: React.ReactNode;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-export function Button({ onClick, style, variant, children }: Props) {
+export function Button({ onClick, style, variant, children, disabled }: Props) {
   return (
-    <Styled.Button onClick={onClick} variant={variant} style={style}>
+    <Styled.Button
+      onClick={onClick}
+      variant={variant}
+      style={style}
+      disabled={disabled}
+    >
       {children}
     </Styled.Button>
   );
